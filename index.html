@@ -1,0 +1,1230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Astrology</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- stylesheet -->
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/plugin/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/plugin/airdatepicker/datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+</head>
+<body>
+    
+    <div class="as_main_wrapper">
+<style>
+/* ====== Reset ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ====== Top Header ====== */
+.top-header {
+  width: 100%;
+  background: #ffd700;
+  color: #000;
+  padding: 6px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.top-header .left-text {
+  font-weight: 600;
+}
+
+.top-header .right-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.top-header .right-icons a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  padding: 5px 10px;
+  background: #fff;
+  border-radius: 25px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.top-header .right-icons a:hover {
+  background: #000;
+  color: #ffd700;
+}
+
+.top-header .right-icons img {
+  height: 18px;
+}
+
+/* ====== Header Text (Instead of Nav) ====== */
+.header {
+  width: 100%;
+  background: linear-gradient(90deg, #0b0b2b, #1c1c3c);
+  color: #fff;
+  text-align: center;
+  padding: 25px 20px;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+.branding h1 {
+  color: #ffd700;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.branding p {
+  color: #ddd;
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .branding h1 {
+    font-size: 16px;
+  }
+  .branding p {
+    font-size: 13px;
+  }
+  .top-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+</style>
+</head>
+<body>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .top-header {
+            background: linear-gradient(to right, #8B4513, #D2691E);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .top-header a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .top-header a:hover {
+            color: #FFD700;
+            transform: translateY(-2px);
+        }
+        
+        .top-header img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        
+        .header {
+            padding: 30px 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .branding {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .left-content {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+        
+        .right-content {
+            flex: 1;
+            min-width: 300px;
+            text-align: right;
+            padding: 20px;
+            background: rgba(139, 69, 19, 0.2);
+            border-radius: 10px;
+            border-left: 3px solid #D2691E;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .sub-tagline {
+            font-size: 1.8rem;
+            margin: 20px 0;
+            color: #FFD700;
+            font-weight: bold;
+        }
+        
+        .availability {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(210, 105, 30, 0.3);
+            border-radius: 5px;
+            border-left: 3px solid #FFD700;
+        }
+        
+        .expertise {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            line-height: 1.8;
+            color: #e6e6e6;
+        }
+        
+        .consultation-box {
+            background: rgba(210, 105, 30, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid #D2691E;
+        }
+        
+        .consultation-box h3 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            background: linear-gradient(to right, #8B4513, #D2691E);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #D2691E, #8B4513);
+        }
+        
+        .contact-btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(to right, #25D366, #128C7E);
+        }
+        
+        .whatsapp-btn:hover {
+            background: linear-gradient(to right, #128C7E, #25D366);
+        }
+        
+        /* Mobile-specific styles */
+        .mobile-contact-bar {
+            display: none;
+            background: linear-gradient(to right, #8B4513, #D2691E);
+            padding: 12px 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mobile-contact-bar .contact-buttons {
+            justify-content: space-around;
+        }
+        
+        .mobile-contact-bar .contact-btn {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-header {
+                display: none; /* Hide top header on mobile */
+            }
+            
+            .mobile-contact-bar {
+                display: block; /* Show mobile contact bar */
+            }
+            
+            .consultation-box {
+                display: none; /* Hide consultation box on mobile */
+            }
+            
+            .branding {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .left-content, .right-content {
+                text-align: center;
+                width: 100%;
+            }
+            
+            .right-content {
+                border-left: none;
+                border-top: 3px solid #D2691E;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.3rem;
+            }
+            
+            .sub-tagline {
+                font-size: 1.5rem;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.7rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .sub-tagline {
+                font-size: 1.3rem;
+            }
+            
+            .availability {
+                font-size: 1rem;
+            }
+            
+            .expertise {
+                font-size: 1rem;
+            }
+        }
+        
+        .om-symbol {
+            font-size: 2.5rem;
+            margin-right: 10px;
+            color: #FFD700;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <!-- ====== Top Header (Hidden on Mobile) ====== --> 
+    <div class="top-header">
+        <div class="left-text">🌞 Call Now for Consultation — Accurate Vedic Guidance</div>
+        <div class="right-icons">
+            <a href="https://wa.me/919664432853?text=Hello%20Pandit%20Vaibhav%20Shastri%20Ji%2C%20I%20want%20to%20consult%20you%20regarding%20my%20problem." target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="tel:+919664432853"><i class="fas fa-phone-alt"></i> Call Now</a>
+        </div>
+    </div>
+
+    
+    <!-- ====== Main Header ====== -->
+    <header class="header">
+        <div class="branding">
+            <div class="left-content">
+                <h1><span class="om-symbol">ॐ</span> Trusted Indian Astrologer — Pandit Vaibhav Shastri Ji</h1>
+                <p class="tagline">Don't Worry About Your Problems — Vedic Astrologer | Kundli Expert</p>
+                
+                <!-- Consultation Box (Hidden on Mobile) -->
+                <div class="consultation-box">
+                    <h3>Get Personalized Solutions</h3>
+                    <p>Consult for Love, Career, Marriage, Business & Health Issues</p>
+                    <div class="contact-buttons">
+                        <a href="https://wa.me/919664432853?text=Hello%20Pandit%20Vaibhav%20Shastri%20Ji%2C%20I%20want%20to%20consult%20you%20regarding%20my%20problem." target="_blank" class="contact-btn whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                        <a href="tel:+919664432853" class="contact-btn">
+                            <i class="fas fa-phone-alt"></i> Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-content">
+                <p class="sub-tagline">Now Share Your Problems With Us!</p>
+                <p class="availability">NO NEED FOR ANY MEETING — ALSO AVAILABLE ON WHATSAPP</p>
+                <p class="expertise">Expert in Vedic Astrology, Kundli Matching, Love, Career & Property Remedies — Get Accurate Predictions and Real Results.</p>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // Simple script to highlight the contact buttons on hover
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactButtons = document.querySelectorAll('.contact-btn');
+            
+            contactButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+        <section class="as_banner_wrapper">
+            <div class="container-fluid">
+                <div class="row as_verticle_center">
+                    <div class="col-lg-6 order-lg-1 col-md-6 order-md-1 col-sm-12 order-sm-1 col-12 order-2">
+                        <div class="as_banner_slider">
+                            <div class="as_banner_detail">
+                                 <h1>Get Accurate Guidance<br>From Pandit Vaibhav Shastri Ji</h1>
+            <p>Don’t worry about your problems. Find peace, prosperity, and solutions through the power of authentic 
+              <strong>Vedic Astrology</strong>, Kundli reading, and life predictions by India’s renowned astrologer.</p>
+              
+                            </div>
+                            <!-- Simple WhatsApp Chat Button with Default Message -->
+<a href="https://wa.me/919664432853?text=Hello%20Pandit%20Vaibhav%20Shastri%20Ji%2C%20I%20want%20to%20consult%20you%20for%20my%20astrology%20problem." 
+   target="_blank" 
+   style="
+     background-color:#25D366;
+     color:#fff;
+     padding:10px 20px;
+     border-radius:5px;
+     text-decoration:none;
+     font-weight:500;
+     display:inline-flex;
+     align-items:center;
+     gap:8px;
+     margin-top:15px;">
+  
+  <i class="fab fa-whatsapp" style="font-size:18px;"></i>
+  Chat Now
+</a>
+
+<!-- Font Awesome (for WhatsApp icon) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2 col-md-6 order-md-2 col-sm-12 order-sm-2 col-12 order-1">
+                        <div class="as_banner_img text-center">
+                            <img src="assets/images/banner_image.png" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> 
+       <section class="as_about_wrapper as_padderTop80 as_padderBottom80">
+  <div class="container">
+    <div class="row">
+
+      <!-- Left Image Section -->
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+        <div class="as_about_slider">
+          <div>
+            <div class="as_aboutimg text-right">
+              <img src="assets/images/about4.jpg" alt="Pandit Vaibhav Shastri Ji" class="img-responsive">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Content Section -->
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+        <h1 class="as_heading">About Pandit Vaibhav Shastri Ji</h1>
+        <p>
+          Pandit Vaibhav Shastri Ji is a renowned <strong>Vedic Astrologer</strong> with years of experience in solving
+          life’s toughest challenges through ancient astrological wisdom. His expertise in <strong>Kundli analysis, love,
+          marriage, career, and property issues</strong> has helped thousands of people achieve happiness and peace.
+        </p>
+        <p>
+          With divine guidance and the blessings of the planets, Pandit Ji provides accurate predictions and practical
+          remedies that transform lives. Whether you’re facing obstacles in your personal life or business, his insight
+          and remedies are designed to bring positive change and balance.
+        </p>
+
+     
+
+        <!-- Contact Expert Section -->
+        <div class="as_contact_expert">
+          <span class="as_icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+              <path d="M19.797,10.487 C19.668,10.616 19.493,10.689 19.310,10.689 C18.929,10.689 18.620,10.380 18.620,9.999 C18.615,5.241 14.759,1.385 10.000,1.379 C9.619,1.379 9.310,1.070 9.310,0.689 C9.310,0.308 9.619,-0.000 10.000,-0.000 C15.520,0.006 19.993,4.478 19.999,9.999 C19.999,10.183 19.927,10.358 19.797,10.487 ZM15.172,9.999 C15.169,7.144 12.855,4.830 10.000,4.827 C9.619,4.827 9.310,4.518 9.310,4.138 C9.310,3.757 9.619,3.448 10.000,3.448 C13.617,3.452 16.547,6.383 16.551,9.999 C16.551,10.380 16.243,10.689 15.862,10.689 C15.481,10.689 15.172,10.380 15.172,9.999 ZM12.864,14.155 C13.076,14.182 13.288,14.109 13.438,13.957 L14.982,12.413 C15.209,12.186 15.563,12.146 15.835,12.317 L19.655,14.775 C19.955,14.965 20.063,15.350 19.905,15.668 L18.045,19.616 C17.918,19.873 17.645,20.024 17.360,19.995 C15.394,19.789 10.563,18.932 5.815,14.183 C1.067,9.435 0.210,4.604 0.003,2.638 C-0.026,2.352 0.125,2.079 0.382,1.952 L4.331,0.093 C4.649,-0.067 5.036,0.043 5.224,0.344 L7.684,4.164 C7.854,4.436 7.814,4.790 7.586,5.017 L6.042,6.560 C5.890,6.711 5.818,6.924 5.845,7.135 C5.942,7.900 6.373,9.809 8.282,11.718 C10.191,13.627 12.099,14.057 12.864,14.155 Z" fill="#fff"/>
+            </svg>
+          </span>
+          <div>
+            <h5 class="as_white">Contact Our Expert Astrologer</h5>
+            <h1 class="as_orange">+91 96644 32853</h1>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      <section class="as_service_wrapper as_padderTop80 as_padderBottom80">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="as_heading as_heading_center">Our Services</h1>
+        <p class="as_font14 as_padderBottom5">
+          Get expert astrology guidance for all aspects of your life — love, marriage, career, health, and destiny.
+        </p>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="as_service_box text-center">
+          <span class="as_icon">
+            <img src="assets/images/svg/service1.svg" alt="">
+          </span>
+          <h4 class="as_subheading">Love Marriage Problem</h4>
+          <p>Powerful remedies to overcome love marriage or relationship challenges.</p>
+          <a href="tel:+919664432853" class="as_btn" style="background-color:#ff7f27;color:#fff;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:8px;">
+            <i class="fas fa-phone-alt" style="font-size:16px;"></i> Call Now
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="as_service_box text-center">
+          <span class="as_icon">
+            <img src="assets/images/svg/service2.svg" alt="">
+          </span>
+          <h4 class="as_subheading">Career & Business Astrology</h4>
+          <p>Guidance for job growth, promotions, and success in business ventures.</p>
+          <a href="tel:+919664432853" class="as_btn" style="background-color:#ff7f27;color:#fff;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:8px;">
+            <i class="fas fa-phone-alt" style="font-size:16px;"></i> Call Now
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="as_service_box text-center">
+          <span class="as_icon">
+            <img src="assets/images/svg/service3.svg" alt="">
+          </span>
+          <h4 class="as_subheading">Kundli Matching</h4>
+          <p>Accurate horoscope matching for a happy and compatible marriage life.</p>
+          <a href="tel:+919664432853" class="as_btn" style="background-color:#ff7f27;color:#fff;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:8px;">
+            <i class="fas fa-phone-alt" style="font-size:16px;"></i> Call Now
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="as_service_box text-center">
+          <span class="as_icon">
+            <img src="assets/images/svg/service4.svg" alt="">
+          </span>
+          <h4 class="as_subheading">Manglik Dosh Nivaran</h4>
+          <p>Effective remedies for Mangal Dosh and delay in marriage issues.</p>
+          <a href="tel:+919664432853" class="as_btn" style="background-color:#ff7f27;color:#fff;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:8px;">
+            <i class="fas fa-phone-alt" style="font-size:16px;"></i> Call Now
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="as_service_box text-center">
+          <span class="as_icon">
+            <img src="assets/images/svg/service6.svg" alt="">
+          </span>
+          <h4 class="as_subheading">Vastu Consultation</h4>
+          <p>Balance your home or office energies for prosperity and peace.</p>
+          <a href="tel:+919664432853" class="as_btn" style="background-color:#ff7f27;color:#fff;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:8px;">
+            <i class="fas fa-phone-alt" style="font-size:16px;"></i> Call Now
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="as_service_box text-center">
+          <span class="as_icon">
+            <img src="assets/images/svg/service7.svg" alt="">
+          </span>
+          <h4 class="as_subheading">Health & Wealth Astrology</h4>
+          <p>Astrological solutions for good health and stable financial life.</p>
+          <a href="tel:+919664432853" class="as_btn" style="background-color:#ff7f27;color:#fff;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:8px;">
+            <i class="fas fa-phone-alt" style="font-size:16px;"></i> Call Now
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="as_service_box text-center">
+          <span class="as_icon">
+            <img src="assets/images/svg/service8.svg" alt="">
+          </span>
+          <h4 class="as_subheading">Foreign Settlement</h4>
+          <p>Get your horoscope analyzed for abroad travel and settlement chances.</p>
+          <a href="tel:+919664432853" class="as_btn" style="background-color:#ff7f27;color:#fff;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:8px;">
+            <i class="fas fa-phone-alt" style="font-size:16px;"></i> Call Now
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="as_service_box text-center">
+          <span class="as_icon">
+            <img src="assets/images/svg/service5.svg" alt="">
+          </span>
+          <h4 class="as_subheading">Gemstone Consultation</h4>
+          <p>Get personalized gemstone advice to enhance luck and success.</p>
+          <a href="tel:+919664432853" class="as_btn" style="background-color:#ff7f27;color:#fff;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:8px;">
+            <i class="fas fa-phone-alt" style="font-size:16px;"></i> Call Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+        <section class="as_zodiac_sign_wrapper as_padderTop80 as_padderBottom80">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="as_heading as_heading_center">Choose Your Zodiac Sign</h1>
+        <p class="as_font14 as_margin0">
+          Discover your zodiac sign and explore personalized astrology insights for love, career, and life.
+        </p>
+
+        <div class="as_zodiac_inner text-left">
+          <div class="row as_verticle_center">
+            
+            <!-- Left Column -->
+            <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+              <ul class="as_sign_ul">
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign1.svg" alt="">
+                    </span>
+                    <div><h5>Aries</h5></div>
+                  </a>
+                </li>
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign2.svg" alt="">
+                    </span>
+                    <div><h5>Taurus</h5></div>
+                  </a>
+                </li>
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign3.svg" alt="">
+                    </span>
+                    <div><h5>Gemini</h5></div>
+                  </a>
+                </li>
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign4.svg" alt="">
+                    </span>
+                    <div><h5>Cancer</h5></div>
+                  </a>
+                </li>
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign5.svg" alt="">
+                    </span>
+                    <div><h5>Leo</h5></div>
+                  </a>
+                </li>
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign6.svg" alt="">
+                    </span>
+                    <div><h5>Virgo</h5></div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Center Image -->
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+              <div class="as_sign_img text-center">
+                <img src="assets/images/zodiac.png" alt="" class="img-responsive">
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+              <ul class="as_sign_ul as_sign_ul_right">
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign7.svg" alt="">
+                    </span>
+                    <div><h5>Libra</h5></div>
+                  </a>
+                </li>
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign8.svg" alt="">
+                    </span>
+                    <div><h5>Scorpio</h5></div>
+                  </a>
+                </li>
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign9.svg" alt="">
+                    </span>
+                    <div><h5>Sagittarius</h5></div>
+                  </a>
+                </li>
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign10.svg" alt="">
+                    </span>
+                    <div><h5>Capricorn</h5></div>
+                  </a>
+                </li>
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign11.svg" alt="">
+                    </span>
+                    <div><h5>Aquarius</h5></div>
+                  </a>
+                </li>
+                <li class="as_sign_box">
+                  <a href="zodiac_single.html">
+                    <span class="as_sign">
+                      <img src="assets/images/svg/sign12.svg" alt="">
+                    </span>
+                    <div><h5>Pisces</h5></div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+       <section class="as_know_sign_wrapper as_padderBottom80 as_padderTop80">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="as_heading as_heading_center">Know Your Zodiac Sign</h1>
+        <p class="as_font14 as_margin0 as_padderBottom50">
+          Enter your birth details below and get your zodiac information directly on WhatsApp from Pandit Vaibhav Shastri Ji.
+        </p>
+
+        <div class="as_sign_form text-left">
+          <ul>
+            <li class="as_form_box">
+              <h3 class="as_subheading">Date of Birth</h3>
+              <div class="as_input_feild">
+                <input type="text" id="dob" class="form-control as_datepicker" placeholder="DD/MM/YYYY">
+                <span><img src="assets/images/svg/date.svg" alt=""></span>
+              </div>
+            </li>
+
+            <li class="as_form_box">
+              <h3 class="as_subheading">Time of Birth</h3>
+              <div class="as_input_feild">
+                <input type="text" id="tob" class="form-control as_timepicker" placeholder="08:00 AM">
+                <span><img src="assets/images/svg/time.svg" alt=""></span>
+              </div>
+            </li>
+
+            <li class="as_form_box">
+              <h3 class="as_subheading">Place of Birth</h3>
+              <div class="as_input_feild">
+                <input type="text" id="pob" class="form-control" placeholder="Enter City Name...">
+                <span><img src="assets/images/svg/map1.svg" alt=""></span>
+              </div>
+            </li>
+
+            <li class="as_form_box">
+              <a href="javascript:void(0);" onclick="sendToWhatsApp()" 
+                 class="as_btn"
+                 style="
+                  background-color:#25D366;
+                  color:#fff;
+                  padding:10px 25px;
+                  border-radius:5px;
+                  text-decoration:none;
+                  font-weight:500;
+                  display:inline-flex;
+                  align-items:center;
+                  gap:8px;">
+                <i class="fab fa-whatsapp" style="font-size:18px;"></i>
+                Chat on WhatsApp
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function sendToWhatsApp() {
+  let dob = document.getElementById("dob").value;
+  let tob = document.getElementById("tob").value;
+  let pob = document.getElementById("pob").value;
+
+  // Default message
+  let message = `Hello Pandit Ji,%0AI want to know my Zodiac Sign.%0AHere are my details:%0A--------------------%0A📅 Date of Birth: ${dob}%0A⏰ Time of Birth: ${tob}%0A📍 Place of Birth: ${pob}%0A--------------------%0APlease guide me.`;
+
+  let url = `https://wa.me/919664432853?text=${message}`;
+  window.open(url, '_blank').focus();
+}
+</script>
+
+        
+        
+        <section class="as_whychoose_wrapper as_padderTop80 as_padderBottom80" 
+  style="background:linear-gradient(180deg,#001f3f 0%,#002b5e 100%); color:#fff;">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8 col-md-10">
+        <h1 class="as_heading as_heading_center" style="color:#ffd700;">Why Choose Pandit Vaibhav Shastri Ji</h1>
+        <p class="as_font14 as_margin0 as_padderBottom50" style="color:#dcdcdc;">
+          Trusted Vedic Astrologer guiding thousands with accurate predictions, remedies, and spiritual insights.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="as_whychoose_box text-center p-4" 
+          style="background:#012a55; border-radius:15px; transition:0.3s; border:1px solid rgba(255,215,0,0.2);">
+          <div style="font-size:40px; color:#ffd700; margin-bottom:15px;">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <h4 style="color:#fff;">Experienced Astrologer</h4>
+          <p style="color:#dcdcdc;">Over 12+ years of expertise in horoscope reading, kundli matching, and remedies.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="as_whychoose_box text-center p-4" 
+          style="background:#012a55; border-radius:15px; border:1px solid rgba(255,215,0,0.2);">
+          <div style="font-size:40px; color:#ffd700; margin-bottom:15px;">
+            <i class="fas fa-hand-holding-heart"></i>
+          </div>
+          <h4 style="color:#fff;">Thousands of Happy Clients</h4>
+          <p style="color:#dcdcdc;">Guided 5000+ clients worldwide with effective astrological solutions.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="as_whychoose_box text-center p-4" 
+          style="background:#012a55; border-radius:15px; border:1px solid rgba(255,215,0,0.2);">
+          <div style="font-size:40px; color:#ffd700; margin-bottom:15px;">
+            <i class="fas fa-star"></i>
+          </div>
+          <h4 style="color:#fff;">Accurate Predictions</h4>
+          <p style="color:#dcdcdc;">Known for precise readings that help you make confident life decisions.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="as_whychoose_box text-center p-4" 
+          style="background:#012a55; border-radius:15px; border:1px solid rgba(255,215,0,0.2);">
+          <div style="font-size:40px; color:#ffd700; margin-bottom:15px;">
+            <i class="fas fa-globe-asia"></i>
+          </div>
+          <h4 style="color:#fff;">Global Recognition</h4>
+          <p style="color:#dcdcdc;">Serving clients across India, USA, Canada, UK, and other countries.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="as_whychoose_box text-center p-4" 
+          style="background:#012a55; border-radius:15px; border:1px solid rgba(255,215,0,0.2);">
+          <div style="font-size:40px; color:#ffd700; margin-bottom:15px;">
+            <i class="fas fa-sun"></i>
+          </div>
+          <h4 style="color:#fff;">All Types of Horoscopes</h4>
+          <p style="color:#dcdcdc;">Specializes in career, marriage, love, and property astrology readings.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="as_whychoose_box text-center p-4" 
+          style="background:#012a55; border-radius:15px; border:1px solid rgba(255,215,0,0.2);">
+          <div style="font-size:40px; color:#ffd700; margin-bottom:15px;">
+            <i class="fas fa-book"></i>
+          </div>
+          <h4 style="color:#fff;">Vedic Knowledge</h4>
+          <p style="color:#dcdcdc;">Rooted in authentic scriptures and Vedic astrology principles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+        <section class="as_footer_wrapper as_padderTop80" style="background:#0b0b2b; color:#fff;">
+  <div class="container">
+
+    <div class="as_footer_inner as_padderTop50 as_padderBottom80">
+      <div class="row">
+        <!-- About Section -->
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div class="as_footer_widget">
+            <div class="as_footer_logo">
+              <h2 style="color:#ffd700; font-weight:700;">Pandit Vaibhav Shastri Ji</h2>
+            </div>
+            <p style="color:#ddd;">
+              Renowned Vedic Astrologer | Kundli Expert | Love & Career Specialist.<br>
+              Accurate Predictions, Powerful Remedies, and Trusted Guidance.
+            </p>
+
+          <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<div class="as_share_box">
+  <p style="color:#ffd700;">Follow Us</p>
+  <ul class="social-icons left-icons">
+    <li><a href="https://wa.me/919664432853?text=Hello%20Pandit%20Vaibhav%20Shastri%20Ji" target="_blank" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+    <li><a href="https://www.instagram.com/guruma_and_vebhav_sastri?igsh=a2g3YWo5Mml4anVv target="_blank" class="instagram"><i class="fa-brands fa-instagram"></i></a></li>
+  </ul>
+</div>
+
+<style>
+.as_share_box {
+  text-align: left;
+}
+
+.left-icons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.left-icons li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.left-icons a.whatsapp {
+  background-color: #25D366;
+}
+
+.left-icons a.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.left-icons li a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+</style>
+
+          </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div class="as_footer_widget">
+            <h3 class="as_footer_heading" style="color:#ffd700;">Our Services</h3>
+            <ul>
+              <li><a href="service_detail.html">🔮 Love Marriage Problem Solution</a></li>
+              <li><a href="service_detail.html">💼 Career & Business Astrology</a></li>
+              <li><a href="service_detail.html">🏠 Property & Legal Issue Remedies</a></li>
+              <li><a href="service_detail.html">💫 Health & Kundli Dosha Solution</a></li>
+              <li><a href="service_detail.html">🌍 Foreign Settlement Astrology</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div class="as_footer_widget">
+            <h3 class="as_footer_heading" style="color:#ffd700;">Quick Links</h3>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="appointment.html">Appointment</a></li>
+              <li><a href="service.html">All Services</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div class="as_footer_widget">
+            <h3 class="as_footer_heading" style="color:#ffd700;">Contact Us</h3>
+            <ul class="as_contact_list">
+              <li>
+                <img src="assets/images/svg/map.svg" alt="">
+                <p>India — Providing Global Astrology Services Online</p>
+              </li>
+              <li>
+                <img src="assets/images/svg/address.svg" alt="">
+                <p>
+                  <a href="mailto:info@panditvaibhavshastriji.com" style="color:#ffd700;">info@panditvaibhavshastriji.com</a>
+                </p>
+              </li>
+              <li>
+                <img src="assets/images/svg/call.svg" alt="">
+                <p>
+                  <a href="tel:+919664432853" style="color:#ffd700;">+91 96644 32853</a><br>
+                  <a href="https://wa.me/919664432853?text=Hello%20Pandit%20Ji%2C%20I%20need%20astrology%20consultation." style="color:#25D366;" target="_blank">💬 Chat on WhatsApp</a>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Copyright -->
+<section class="as_copyright_wrapper text-center" style="background:#02021b; padding:15px 0; color:#ccc;">
+  <div class="container">
+    <p>© 2025 Pandit Vaibhav Shastri Ji. All Rights Reserved. | Designed by HDigitalPro</p>
+  </div>
+</section>
+<!-- ====== Font Awesome CDN ====== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- ===== Floating WhatsApp Chat Button ===== -->
+<a href="https://wa.me/919664432853?text=Namaste%20Pandit%20Ji%2C%20I%20need%20your%20guidance."
+   class="whatsapp-chat"
+   target="_blank"
+   title="Chat on WhatsApp">
+   <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<style>
+/* ===== Floating WhatsApp Button ===== */
+.whatsapp-chat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 9999;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-chat:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #25D366;
+}
+
+/* ===== Mobile Adjustment ===== */
+@media (max-width: 600px) {
+  .whatsapp-chat {
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+</style>
+
+    
+    
+
+    <!-- Modal -->
+    <div id="as_login" class="modal fade" tabindex="-1" aria-labelledby="as_login" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="as_login_box active">
+                        <form action="">
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter email" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter password here" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <div class="as_login_data">
+                                    <label>Remember me
+                                         <input type="checkbox" name="as_remember_me" value="">
+                                         <span class="checkmark"></span>
+                                    </label>
+                                    <a href="#">Forgot password ?</a>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <a href="javascript:;" class="as_btn">login</a>
+                            </div>
+                        </form>
+                        <p class="text-center as_margin0 as_padderTop20">Create An Account ? <a href="javascript:;" class="as_orange as_signup">SignUp</a></p>
+                    </div>
+                    <div class="as_signup_box">
+                        <form action="">
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter name" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter email" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter password here" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter mobile number" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <select name="" class="form-control" id="">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <a href="javascript:;" class="as_btn">Sign Up</a>
+                            </div>
+                        </form>
+                        <p class="text-center as_margin0 as_padderTop20">Have An Account ? <a href="javascript:;" class="as_orange as_login">Login</a></p>
+                    </div> 
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+    <!-- javascript -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js" type="88a70a03f9b8e2586b89b47f-text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="88a70a03f9b8e2586b89b47f-text/javascript"></script>
+    <script src="assets/js/plugin/slick/slick.min.js" type="88a70a03f9b8e2586b89b47f-text/javascript"></script>
+    <script src="assets/js/plugin/countto/jquery.countTo.js" type="88a70a03f9b8e2586b89b47f-text/javascript"></script>
+    <script src="assets/js/plugin/airdatepicker/datepicker.min.js" type="88a70a03f9b8e2586b89b47f-text/javascript"></script>
+    <script src="assets/js/plugin/airdatepicker/i18n/datepicker.en.js" type="88a70a03f9b8e2586b89b47f-text/javascript"></script>
+    <script src="assets/js/custom.js" type="88a70a03f9b8e2586b89b47f-text/javascript"></script>  
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="88a70a03f9b8e2586b89b47f-|49" defer></script><script defer src="../../../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"6ea916af91f64c9a8a125129aa82195b","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99a2d71efc298171',t:'MTc2MjQxMzc1Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
